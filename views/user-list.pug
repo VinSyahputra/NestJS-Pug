@@ -1,0 +1,46 @@
+link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet")
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css")
+div(class="container mt-5")
+  h1(class="text-center") User List
+  table(class="table table-bordered") 
+    tr 
+      th No.
+      th ID
+      th Username
+      th Email
+      th Action
+    tbody#container-users
+    
+  //- button(type="button" id="addUser" class="btn btn-primary") Add User
+  button.btn.btn-success(type="button" data-bs-toggle="modal" data-bs-target="#exampleModal")
+    i.fas.fa-plus 
+    |  Add User
+
+  
+
+
+//- Modal
+.modal.fade#exampleModal(tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title#exampleModalLabel Modal title
+        button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+      .modal-body
+        form#userForm(method="POST")
+          .mb-3
+            label(for="username" class="form-label") Username
+            input(type="text" class="form-control" id="username" name="username")
+          .mb-3
+            label(for="email" class="form-label") Email
+            input(type="email" class="form-control" id="email" name="email")
+          .mb-3
+            label(for="password" class="form-label") Password
+            input(type="password" class="form-control" id="password" name="password")
+      .modal-footer
+        button.btn.btn-secondary(type="button" data-bs-dismiss="modal") Close
+        button.btn.btn-primary#addUser(type="button") Save changes
+
+script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js")
+script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+script(src="/js/user-list.js")
